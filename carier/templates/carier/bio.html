@@ -1,0 +1,130 @@
+{% comment %} {% extends 'myPortfolio.html' %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}bio{%endblock title%}</title>
+    <style>
+       body {
+            font-family: sans-serif;
+            background-color: gold;
+            color: rgb(12, 12, 122);}
+        p{
+            font-family: system-ui;
+        }
+        ul.det{
+            font-family: system-ui;
+            width: 200px;
+            border: 2px solid aqua;
+            background-color: rgb(6, 10, 71);
+            color: rgb(30, 255, 0);            
+        }
+
+        #feedbacks{
+            width: 100%;
+            padding: 4px;
+            margin: 3px;
+            color: purple;
+        }
+        .tbl{
+            background-color: rgba(255, 255, 255, 0.65);
+        }
+        #tbldata{
+            color: maroon;
+        }
+
+    </style>
+</head>
+<body>
+    {%block main%}
+    <header>
+        <h1 style="text-align:center; margin-top:45px;">RATHAN R NAYAK-<i>bio</i></h1>
+    </header>
+    
+    <img src="static/photo/Rathan_photo.jpg" style="border:solid 2px aqua;" alt="photo of rathan" height="200">
+    <hr>
+    
+    <main>
+        
+
+        <pre>
+        <ul class="det">
+            <li>Name :RATHAN R NAYAK</li>
+            <li>Age  :19</li>
+            <li>birth:KARNATAKA</li>
+            <li>DOB  :11 april,2003</li>
+        </ul>
+        </pre>
+
+        <hr>
+
+        <section>
+        <pre>
+            Education:B.E.
+            Branch   :COMPUTER SCIENCE
+            Usn      :4MW20CS062
+            <ol>
+                <ul><b>MARKS</b></ul>
+                <li>SSLC       :79.52%</li>
+                <li>PUC        :82.33%</li>
+                <li>Engineering:9.08 cgpa
+                <ul>
+                    <li> 1<sup>st</sup> sem:9.7 sgpa</li>
+                    <li> 2<sup>nd</sup> sem:10 sgpa</li>
+                    <li> 3<sup>rd</sup> sem:8.29 sgpa</li>
+                    <li> 4<sup>th</sup> sem:8.54 sgpa</li>
+                    <li> 5<sup>th</sup> sem:8.68 sgpa</li>
+                    <li> 6<sup>th</sup> sem:8.92 sgpa</li>
+                </ul>
+                </li>
+            </ol>
+
+        </pre>
+        </section>
+        <hr>
+    </main>
+
+    <footer>
+        <h2>FEEDBACK</h2>
+       <table id="feedbacks">
+        <tr class="tbl" id="tblhead">
+            <th>ID</th>
+            <th>NAME</th>
+            <th>FEEDBACK</th>
+            <th>DELETE</th>
+            
+        </tr>
+        {%for i in ob%}
+        <tr class="tbl" id="tbldata">
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            {% comment %} {%if i.name == "rathan"%}
+            <td style="color:aqua;">{{i.name}}</td>
+            {%else%}
+            <td>{{i.name}}</td>
+            {% endif %} {% endcomment %}
+            <td>{{i.feed}}</td>
+            {% cycle 'aqua' 'greenyellow' 'pink' as bg silent %}
+            
+            <td><button style="background-color:{{bg}}" name="deletebtn"><a id="dltbtn" href="deletefeed/{{i.id}}"><img src="/static/photo/delete.png" height=14px></a></button></td>
+        </tr>
+        {%endfor%}
+       </table>
+
+    </footer>
+    {%endblock%}
+</body>
+</html>
+
+
+
+
+
+<!-- https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer -->
+<!-- https://www.coursera.org/learn/gcp-fundamentals?= -->
+<!-- https://www.coursera.org/learn/crypto-finance -->
+
+
+<!-- blockchain,ai with flask -->
